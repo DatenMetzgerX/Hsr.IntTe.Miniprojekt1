@@ -32,7 +32,10 @@ body {
 				<a class="navbar-brand" href="#">Reddit Clone</a>
 			</div>
 			<div class="collapse navbar-collapse">
+				<h:commandButton class="btn btn-success navbar-btn" value="Submit new Link" />
+				
 				<h:commandButton type="button" class="btn btn-default navbar-btn navbar-right" value="Register" />
+				
 				<h:form class="navbar-form navbar-right" role="form">
 					<div class="form-group">
 						<h:inputText class="form-control" pt:placeholder="Username"
@@ -42,9 +45,10 @@ body {
 						<h:inputSecret class="form-control" pt:placeholder="Password"
 							pt:reqiured="required" />
 					</div>
-					<h:commandButton type="submit" class="btn btn-success" value="Login"></h:commandButton>
+					<div class="form-group">
+						<h:commandButton type="submit" class="btn btn-success" value="Login"></h:commandButton>
+					</div>
 				</h:form>
-				Submit new link
 			</div>
 		</div>
 	</div>
