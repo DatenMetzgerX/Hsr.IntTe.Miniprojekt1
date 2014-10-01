@@ -13,6 +13,7 @@ public class Register {
 	
 	private String username;
 	private String password;
+	private String password2;
 	public String getUsername() {
 		return username;
 	}
@@ -37,8 +38,6 @@ public class Register {
 		this.password2 = password2;
 	}
 
-	private String password2;
-	
 	public String register() {
 		User user = new User();
 		user.setUsername(username);;
