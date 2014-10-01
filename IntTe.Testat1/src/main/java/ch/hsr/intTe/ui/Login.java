@@ -3,13 +3,13 @@ package ch.hsr.intTe.ui;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.domain.User;
 import ch.hsr.intTe.service.UserService;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
 @ManagedBean
@@ -23,7 +23,11 @@ public class Login implements Serializable {
 	public String login(Credentials credentials) {
 		Preconditions.checkNotNull(credentials);
 		
-		user = ServiceLocator.getInstance().locate(UserService.class).getByUsername(credentials.getUsername());
+		Optional<User> loginUser = ServiceLocator.getInstance().locate(UserService.class).getByUsername(credentials.getUsername());
+		if (loginUser.isPresent() && loginUser.get().getPassword().equals(credentials.getPassword())) {
+			this.user = loginUser.get();
+		}
+		
 		return "/index.xhtml";
 	}
 	

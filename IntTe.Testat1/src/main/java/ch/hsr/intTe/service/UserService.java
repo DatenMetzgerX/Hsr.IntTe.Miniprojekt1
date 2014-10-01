@@ -4,6 +4,8 @@ import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.dao.UserDao;
 import ch.hsr.intTe.domain.User;
 
+import com.google.common.base.Optional;
+
 public class UserService {
 	
 	private final UserDao userDao;
@@ -16,7 +18,7 @@ public class UserService {
 		return userDao.readAll();
 	}
 	
-	public User getByUsername(String username) {
+	public Optional<User> getByUsername(String username) {
 		return userDao.findByUsername(username);
 	}
 
