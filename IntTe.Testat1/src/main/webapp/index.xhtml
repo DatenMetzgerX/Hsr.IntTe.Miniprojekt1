@@ -3,24 +3,31 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://xmlns.jcp.org/jsp/jstl/core">
+	
+	
+	
 	<ui:define name="content">
-		<ul class="media-list">
-			<li class="media">
-				<div class="pull-left text-center">
-					<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a><br />
-					3000<br />
-					<a href="#"><span class="glyphicon glyphicon-thumbs-down"></span></a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Media heading</h4>
-					<span class="text-muted">Author, Zeitpunkt</span>
-					<p>
-					Comment...
-					</p>
-					
-					<span class="glyphicon glyphicon-comment text-muted"></span> <span class="text-muted">120 comments...</span>
-				</div>
-			</li>
-		</ul>
+		<h:dataTable class="media-list" value="#{content.posts}" var="post">
+			<h:column>
+				<ul class="media-list">
+					<li class="media">
+						<div class="pull-left text-center">
+							<a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a><br />
+							3000<br />
+							<a href="#"><span class="glyphicon glyphicon-thumbs-down"></span></a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#{post.link}">#{post.title}</a></h4>
+							<span class="text-muted">#{post.author}, #{post.postedAt}</span>
+							<p>
+							Comment...
+							</p>
+							
+							<span class="glyphicon glyphicon-comment text-muted"></span> <span class="text-muted">120 comments...</span>
+						</div>
+					</li>
+				</ul>
+			</h:column>
+		</h:dataTable>
 	</ui:define>
 </ui:composition>
