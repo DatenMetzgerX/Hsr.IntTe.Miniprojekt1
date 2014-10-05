@@ -1,7 +1,6 @@
 package ch.hsr.intTe.dao;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 import com.google.common.base.Preconditions;
@@ -12,7 +11,7 @@ public class PostDao {
 	
 	private static PostDao instance = new PostDao();
 	
-	private Collection<Post> posts = new ArrayList<Post>();
+	private ArrayList<Post> posts = new ArrayList<Post>();
 	
 	public PostDao() {
 		posts.add(createPost("Erster Post", "http://info.cern.ch/hypertext/WWW/TheProject.html", 
@@ -31,7 +30,7 @@ public class PostDao {
 		Preconditions.checkNotNull(post);
 		Preconditions.checkNotNull(post.getTitle(), "a post must have a title");
 		Preconditions.checkNotNull(post.getLink(), "a post must have a link");
-		posts.add(post);
+		posts.add(0, post);
 		return post;
 	}
 	

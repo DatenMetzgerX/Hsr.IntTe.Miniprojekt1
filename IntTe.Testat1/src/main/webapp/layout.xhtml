@@ -33,7 +33,7 @@ body {
 			</div>
 			<div class="collapse navbar-collapse">
 				<h:form class="navbar-form" rendered="#{login.loggedIn}">
-					<h:commandButton class="btn btn-success" value="Submit new Link" />
+					<h:commandLink class="btn btn-success" value="Submit new Link" action="/submitlink.xhtml"/>
 					<h:commandButton class="btn btn-danger pull-right" value="Logout" action="#{login.logout}"/>
 				</h:form>
 				<h:form class="navbar-form navbar-right" role="form" rendered="#{!login.loggedIn}">
