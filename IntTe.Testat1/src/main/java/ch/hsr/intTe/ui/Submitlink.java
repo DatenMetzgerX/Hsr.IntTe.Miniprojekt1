@@ -3,9 +3,8 @@ package ch.hsr.intTe.ui;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import ch.hsr.intTe.dao.PostDao;
 import ch.hsr.intTe.domain.Post;
@@ -14,6 +13,9 @@ import ch.hsr.intTe.domain.User;
 @ManagedBean
 @RequestScoped
 public class Submitlink {
+	
+	@ManagedProperty(value="#{login}")
+	private Login login;
 	
 	private String title;
 	private String link;
@@ -32,10 +34,7 @@ public class Submitlink {
 	}
 	
 	private String currentUserName(){
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
-
-		User user = (User) session.getAttribute("user");
+		User user = login.getUser();
 		
 		if(user != null){
 			return user.getUsername();
@@ -66,4 +65,11 @@ public class Submitlink {
 		this.link = link;
 	}
 
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 }
