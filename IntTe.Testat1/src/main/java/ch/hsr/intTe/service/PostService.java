@@ -8,7 +8,7 @@ public class PostService {
 
 	private final PostDao postDao;
 	
-	PostService() {
+	public PostService() {
 		postDao = ServiceLocator.getInstance().locate(PostDao.class);
 	}
 	

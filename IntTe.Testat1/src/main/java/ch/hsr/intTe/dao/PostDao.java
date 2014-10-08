@@ -19,7 +19,7 @@ public class PostDao {
 				new Date(), "andreas"));
 		posts.add(createPost("9gag", "http://9gag.com/"
 				, new Date(), "andreas"));
-		posts.add(createPost("SE2 Projekt 13 Pr‰sentationsplan", "http://wiki.hsr.ch/SE2Projekt/files/SE2P-Praesentationen-FS2013.pdf"
+		posts.add(createPost("SE2 Projekt 13 Pr√§sentationsplan", "http://wiki.hsr.ch/SE2Projekt/files/SE2P-Praesentationen-FS2013.pdf"
 				, new Date(), "andreas"));
 	}
 	

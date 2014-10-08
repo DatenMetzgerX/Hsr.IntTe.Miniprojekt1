@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Post implements Serializable{
+public class Post implements Serializable, Votable {
 	private static final long serialVersionUID = 4534629547661798393L;
 	
 	private String title;
 	private String link;
 	private Date postedAt;
 	private String author;
+	private int votes;
 	
 	private ArrayList<Comment> comments = new ArrayList<>();
 	
@@ -48,6 +49,21 @@ public class Post implements Serializable{
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+	@Override
+	public int voteUp() {
+		return this.votes++;
+	}
+	
+	@Override
+	public int getVotes() {
+		return votes;
+	}
+
+	@Override
+	public int voteDown() {
+		return this.votes--;
 	}
 	
 }
