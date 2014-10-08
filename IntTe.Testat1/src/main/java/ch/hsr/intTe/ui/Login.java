@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.domain.User;
@@ -31,8 +32,9 @@ public class Login implements Serializable {
 		return "/index.xhtml";
 	}
 	
-	public void logout() {
-		user = null;
+	public String logout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/index.xhtml?faces-redirect=true";
 	}
 	
 	public boolean isLoggedIn() {
