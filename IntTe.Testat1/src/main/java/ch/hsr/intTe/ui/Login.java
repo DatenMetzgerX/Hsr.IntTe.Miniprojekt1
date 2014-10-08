@@ -13,7 +13,7 @@ import ch.hsr.intTe.service.UserService;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 
-@ManagedBean(name="login")
+@ManagedBean
 @SessionScoped
 public class Login implements Serializable {
 	

@@ -15,11 +15,11 @@ public class PostDao {
 	
 	public PostDao() {
 		posts.add(createPost("Erster Post", "http://info.cern.ch/hypertext/WWW/TheProject.html", 
-				new Date(), "Andreas"));
+				new Date(), "andreas"));
 		posts.add(createPost("9gag", "http://9gag.com/"
-				, new Date(), "Andreas"));
+				, new Date(), "andreas"));
 		posts.add(createPost("SE2 Projekt 13 Präsentationsplan", "http://wiki.hsr.ch/SE2Projekt/files/SE2P-Praesentationen-FS2013.pdf"
-				, new Date(), "Andreas"));
+				, new Date(), "andreas"));
 	}
 	
 	public static synchronized PostDao getInstance(){

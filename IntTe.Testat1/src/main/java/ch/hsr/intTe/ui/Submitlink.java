@@ -6,9 +6,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import ch.hsr.intTe.dao.PostDao;
+import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.domain.Post;
 import ch.hsr.intTe.domain.User;
+import ch.hsr.intTe.service.PostService;
 
 @ManagedBean
 @RequestScoped
@@ -21,14 +22,13 @@ public class Submitlink {
 	private String link;
 	
 	public String submit(){
-		PostDao postDao = PostDao.getInstance();
-		
 		Post post = new Post();
 		post.setAuthor(currentUserName());
 		post.setTitle(title);
 		post.setLink(compleatLink(link));
 		post.setPostedAt(new Date());
-		postDao.savePost(post);
+		
+		ServiceLocator.getInstance().locate(PostService.class).savePost(post);
 		
 		return "/index.xhtml";
 	}
@@ -43,7 +43,7 @@ public class Submitlink {
 	}
 	
 	private String compleatLink(String link){
-		if(link.substring(0, 3).equals("http")){
+		if(link.length() > 3 && link.substring(0, 3).equals("http")){
 			return link;
 		}
 		return "http://" + link;
