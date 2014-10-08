@@ -1,6 +1,7 @@
 package ch.hsr.intTe.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Post implements Serializable{
@@ -10,6 +11,12 @@ public class Post implements Serializable{
 	private String link;
 	private Date postedAt;
 	private String author;
+	
+	private ArrayList<Comment> comments = new ArrayList<>();
+	
+	public boolean addComment(Comment comment) {
+		return comments.add(comment);
+	}
 	
 	public String getTitle() {
 		return title;

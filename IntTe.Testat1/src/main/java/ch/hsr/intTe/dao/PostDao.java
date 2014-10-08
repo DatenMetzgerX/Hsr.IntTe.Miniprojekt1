@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.google.common.base.Preconditions;
 
+import ch.hsr.intTe.domain.Comment;
 import ch.hsr.intTe.domain.Post;
 
 public class PostDao {
@@ -31,6 +32,11 @@ public class PostDao {
 		Preconditions.checkNotNull(post.getTitle(), "a post must have a title");
 		Preconditions.checkNotNull(post.getLink(), "a post must have a link");
 		posts.add(0, post);
+		return post;
+	}
+	
+	public Post addComment(Post post, Comment comment){
+		post.addComment(comment);
 		return post;
 	}
 	
