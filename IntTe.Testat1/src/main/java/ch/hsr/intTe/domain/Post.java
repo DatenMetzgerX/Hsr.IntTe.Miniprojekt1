@@ -33,6 +33,10 @@ public class Post implements Serializable, Votable {
 		return comments.size();
 	}
 	
+	public long getTimeSincePosted(){
+		return (new Date()).getTime() - postedAt.getTime();	
+	}
+	
 	public String getTitle() {
 		return title;
 	}

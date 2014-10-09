@@ -3,7 +3,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:composite="http://java.sun.com/jsf/composite"
-	xmlns:em="http://java.sun.com/jsf/composite/emcomp">
+	xmlns:em="http://java.sun.com/jsf/composite/emcomp"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
 <body>
 	<composite:interface>
 		<composite:attribute name="comments" required="true" />
@@ -17,6 +19,12 @@
 					</div>
 					<div class="media-body">
 						<p>#{comment.text}</p>
+						<p class="text-muted">
+						<h:outputText value="#{comment.timeSincePosted}">
+							<f:convertDateTime type="time" pattern="HH:mm:ss" />
+						</h:outputText>
+						ago
+						</p>
 					</div>
 				</li>
 			</ui:repeat>

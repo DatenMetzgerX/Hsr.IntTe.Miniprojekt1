@@ -18,7 +18,13 @@
 				<h4 class="media-heading">
 					<a href="#{post.link}">#{post.title}</a>
 				</h4>
-				<span class="text-muted">#{cc.attrs.post.author}, #{cc.attrs.post.postedAt}</span>
+				<span class="text-muted">
+					<p>#{cc.attrs.post.author}, 
+					<h:outputText value="#{post.timeSincePosted}">
+						<f:convertDateTime type="time" pattern="HH:mm:ss" />
+					</h:outputText>
+					</p>
+				</span>
 				<h:commandLink rendered="#{!post.commentsAreVisible}" action="#{post.togleCommentsAreVisible}">
 					<p class="text-muted">
 						<span class="glyphicon glyphicon-comment text-muted"></span>

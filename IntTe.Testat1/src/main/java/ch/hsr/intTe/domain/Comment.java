@@ -11,6 +11,10 @@ public class Comment implements Serializable, Votable{
 	private Post post;
 	private int votes;
 
+	public long getTimeSincePosted(){
+		return (new Date()).getTime() - date.getTime();
+	}
+	
 	public String getText() {
 		return text;
 	}

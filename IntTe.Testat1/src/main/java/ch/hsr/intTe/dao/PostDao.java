@@ -55,6 +55,7 @@ public class PostDao {
 		for (String commentText : comments) {
 			Comment comment = new Comment();
 			comment.setText(commentText);
+			comment.setDate(new Date());
 			post.addComment(comment);
 		}
 		return post;
