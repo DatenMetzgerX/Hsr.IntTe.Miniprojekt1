@@ -16,15 +16,24 @@
 			</div>
 			<div class="media-body">
 				<h4 class="media-heading">
-					<a href="#{post.link}">#{cc.attrs.post.title}</a>
+					<a href="#{post.link}">#{post.title}</a>
 				</h4>
 				<span class="text-muted">#{cc.attrs.post.author}, #{cc.attrs.post.postedAt}</span>
-				<p>Comment...</p>
-				<p class="text-muted">
-					<span class="glyphicon glyphicon-comment text-muted"></span>
-					#{cc.attrs.post.numberOfComments} comments...
-				</p>
-				<em:comments comments="#{cc.attrs.post.comments}" />
+				<h:commandLink rendered="#{!post.commentsAreVisible}" action="#{post.togleCommentsAreVisible}">
+					<p class="text-muted">
+						<span class="glyphicon glyphicon-comment text-muted"></span>
+						#{cc.attrs.post.numberOfComments} comments...
+					</p>
+				</h:commandLink>
+				<h:panelGroup rendered="#{post.commentsAreVisible}">
+					<h:commandLink action="#{post.togleCommentsAreVisible}">
+						<p class="text-muted">
+							<span class="glyphicon glyphicon-chevron-up"></span>
+							reduce comments
+						</p>
+					</h:commandLink>
+					<em:comments comments="#{cc.attrs.post.comments}" />
+				</h:panelGroup>
 			</div>
 		</li>
 	</composite:implementation>

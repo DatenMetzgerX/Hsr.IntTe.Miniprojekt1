@@ -13,6 +13,7 @@ public class Post implements Serializable, Votable {
 	private Date postedAt;
 	private String author;
 	private int votes;
+	private boolean commentsAreVisible = false;
 	
 	private List<Comment> comments = new ArrayList<>();
 	
@@ -64,6 +65,21 @@ public class Post implements Serializable, Votable {
 		this.author = author;
 	}
 	
+	public boolean getCommentsAreVisible() {
+		return commentsAreVisible;
+	}
+
+	public void setCommentsAreVisible(boolean commentsAreVisible) {
+		this.commentsAreVisible = commentsAreVisible;
+	}
+	
+	public void togleCommentsAreVisible() {
+		System.out.println(comments.size());
+		if(comments.size() > 0){
+			this.commentsAreVisible = !this.commentsAreVisible;
+		}
+	}
+
 	@Override
 	public int voteUp() {
 		return this.votes++;
