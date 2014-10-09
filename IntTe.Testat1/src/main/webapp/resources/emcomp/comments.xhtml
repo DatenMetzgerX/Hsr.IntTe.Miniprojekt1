@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:em="http://java.sun.com/jsf/composite/emcomp">
+<body>
+	<composite:interface>
+		<composite:attribute name="comments" required="true" />
+	</composite:interface>
+	<composite:implementation>
+		<ul class="media-list">
+			<ui:repeat var="comment" value="#{cc.attrs.comments}">
+				<li class="media">
+					<div class="pull-left text-center">
+						<em:vote voteable="#{comment}" />
+					</div>
+					<div class="media-body">
+						<p>#{comment.text}</p>
+					</div>
+				</li>
+			</ui:repeat>
+		</ul>
+	</composite:implementation>
+</body>
+</html>

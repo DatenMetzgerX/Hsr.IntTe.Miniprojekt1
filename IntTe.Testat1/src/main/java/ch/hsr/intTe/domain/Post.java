@@ -3,6 +3,7 @@ package ch.hsr.intTe.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Post implements Serializable, Votable {
 	private static final long serialVersionUID = 4534629547661798393L;
@@ -13,10 +14,22 @@ public class Post implements Serializable, Votable {
 	private String author;
 	private int votes;
 	
-	private ArrayList<Comment> comments = new ArrayList<>();
+	private List<Comment> comments = new ArrayList<>();
 	
-	public boolean addComment(Comment comment) {
-		return comments.add(comment);
+	public void addComment(Comment comment) {
+		comments.add(comment);
+	}
+	
+	public Iterable<Comment> getComments() {
+		return comments;
+	}
+	
+	public void removeComment(Comment comment) {
+		comments.remove(comment);
+	}
+	
+	public int getNumberOfComments() {
+		return comments.size();
 	}
 	
 	public String getTitle() {

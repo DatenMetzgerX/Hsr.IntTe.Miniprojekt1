@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:em="http://java.sun.com/jsf/composite/emcomp">
+<body>
+	<composite:interface>
+		<composite:attribute name="post" required="true" />
+	</composite:interface>
+	<composite:implementation>
+		<li class="media">
+			<div class="pull-left text-center">
+				<em:vote voteable="#{cc.attrs.post}" />
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="#{post.link}">#{cc.attrs.post.title}</a>
+				</h4>
+				<span class="text-muted">#{cc.attrs.post.author}, #{cc.attrs.post.postedAt}</span>
+				<p>Comment...</p>
+				<p class="text-muted">
+					<span class="glyphicon glyphicon-comment text-muted"></span>
+					#{cc.attrs.post.numberOfComments} comments...
+				</p>
+				<em:comments comments="#{cc.attrs.post.comments}" />
+			</div>
+		</li>
+	</composite:implementation>
+</body>
+</html>

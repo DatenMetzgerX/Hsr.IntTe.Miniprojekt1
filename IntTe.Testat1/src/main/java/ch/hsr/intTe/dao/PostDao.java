@@ -16,7 +16,7 @@ public class PostDao {
 	
 	public PostDao() {
 		posts.add(createPost("Erster Post", "http://info.cern.ch/hypertext/WWW/TheProject.html", 
-				new Date(), "andreas"));
+				new Date(), "andreas", "Kommentar 1", "Kommentar 2"));
 		posts.add(createPost("9gag", "http://9gag.com/"
 				, new Date(), "andreas"));
 		posts.add(createPost("SE2 Projekt 13 Präsentationsplan", "http://wiki.hsr.ch/SE2Projekt/files/SE2P-Praesentationen-FS2013.pdf"
@@ -44,12 +44,19 @@ public class PostDao {
 		return posts;
 	}
 	
-	private static Post createPost(String title, String link, Date postedAt, String name){
+	private static Post createPost(String title, String link, Date postedAt, 
+			String name, String... comments){
 		Post post = new Post();
 		post.setTitle(title);
 		post.setLink(link);
 		post.setPostedAt(postedAt);
 		post.setAuthor(name);
+		
+		for (String commentText : comments) {
+			Comment comment = new Comment();
+			comment.setText(commentText);
+			post.addComment(comment);
+		}
 		return post;
 	}
 

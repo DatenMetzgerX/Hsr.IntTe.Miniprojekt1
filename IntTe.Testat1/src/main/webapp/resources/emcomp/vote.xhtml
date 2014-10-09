@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:em="http://java.sun.com/jsf/composite/emcomp">
+<body>
+	<composite:interface>
+		<composite:attribute name="voteable" required="true" />
+	</composite:interface>
+	<composite:implementation>
+		<h:commandLink action="#{cc.attrs.voteable.voteUp}" immediate="true" rendered="#{login.loggedIn}">
+			<f:ajax render="voting" action="@this" />
+			<span class="glyphicon glyphicon-thumbs-up"></span>
+		</h:commandLink>
+		<br />
+		<h:outputText value="#{cc.attrs.voteable.votes}" id="voting" />
+		<br />
+		<h:commandLink action="#{cc.attrs.voteable.voteDown}" immediate="true" rendered="#{login.loggedIn}">
+			<f:ajax render="voting" ation="@this" />
+			<span class="glyphicon glyphicon-thumbs-down"></span>
+		</h:commandLink>
+	</composite:implementation>
+</body>
+</html>
