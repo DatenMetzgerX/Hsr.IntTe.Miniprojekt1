@@ -74,7 +74,6 @@ public class Post implements Serializable, Votable {
 	}
 	
 	public void togleCommentsAreVisible() {
-		System.out.println(comments.size());
 		if(comments.size() > 0){
 			this.commentsAreVisible = !this.commentsAreVisible;
 		}
