@@ -19,11 +19,10 @@
 					<a href="#{post.link}">#{post.title}</a>
 				</h4>
 				<span class="text-muted">
-					<p>#{cc.attrs.post.author}, 
+					#{cc.attrs.post.author}, 
 					<h:outputText value="#{post.timeSincePosted}">
 						<f:convertDateTime type="time" pattern="HH:mm:ss" />
 					</h:outputText>
-					</p>
 				</span>
 				<h:commandLink rendered="#{!post.commentsAreVisible}" action="#{post.togleCommentsAreVisible}">
 					<p class="text-muted">
@@ -32,12 +31,17 @@
 					</p>
 				</h:commandLink>
 				<h:panelGroup rendered="#{post.commentsAreVisible}">
-					<h:commandLink action="#{post.togleCommentsAreVisible}">
+					<h:commandLink action="#{post.togleCommentsAreVisible}" immediate="true">
 						<p class="text-muted">
 							<span class="glyphicon glyphicon-chevron-up"></span>
 							reduce comments
 						</p>
 					</h:commandLink>
+					<h:form rendered="#{login.loggedIn}">
+						<h:inputTextarea value="#{submitComment.text}" />
+						<h:commandButton type="submit" class="btn btn-success" value="Submit"
+						action="#{submitComment.submitComment(post)}" />
+					</h:form>
 					<em:comments comments="#{cc.attrs.post.comments}" />
 				</h:panelGroup>
 			</div>
