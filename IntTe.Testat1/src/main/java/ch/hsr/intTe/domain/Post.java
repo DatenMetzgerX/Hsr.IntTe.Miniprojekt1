@@ -5,10 +5,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
+
 public class Post implements Serializable, Votable {
 	private static final long serialVersionUID = 4534629547661798393L;
 	
+	@NotEmpty
 	private String title;
+	
+	@NotNull
+	@URL
 	private String link;
 	private Date postedAt;
 	private String author;

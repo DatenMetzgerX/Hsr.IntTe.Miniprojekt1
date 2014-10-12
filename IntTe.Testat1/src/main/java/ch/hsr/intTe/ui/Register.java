@@ -1,19 +1,36 @@
 package ch.hsr.intTe.ui;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.domain.User;
 import ch.hsr.intTe.service.UserService;
+import ch.hsr.intTe.ui.validation.UserDoesntExist;
 
 @ManagedBean
 @RequestScoped
-public class Register {
-	
+public class Register implements Serializable {
+	private static final long serialVersionUID = -2948986133701289370L;
+
+	@NotNull
+	@Length(min=3, max=15)
+	@UserDoesntExist(message="Ein Benutzer mit diesem Login existiert bereits.")
 	private String username;
+	
+	@NotNull
+	@Length(min=3, max=128)
 	private String password;
+	
+	@NotNull
+	@Length(min=3, max=128)
 	private String password2;
+	
 	public String getUsername() {
 		return username;
 	}

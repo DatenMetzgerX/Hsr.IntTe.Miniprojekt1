@@ -3,9 +3,12 @@ package ch.hsr.intTe.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Comment implements Serializable, Votable{
 	private static final long serialVersionUID = -4272793839234627484L;
 	
+	@NotEmpty
 	private String text;
 	private Date date;
 	private Post post;

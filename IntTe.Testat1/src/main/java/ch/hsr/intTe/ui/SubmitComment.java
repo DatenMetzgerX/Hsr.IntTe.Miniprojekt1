@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import ch.hsr.intTe.domain.Comment;
 import ch.hsr.intTe.domain.Post;
 
@@ -12,7 +14,8 @@ import ch.hsr.intTe.domain.Post;
 @RequestScoped
 public class SubmitComment {
 	
-	String text;
+	@NotEmpty
+	private String text;
 
 	public void submitComment(Post post){
 		Comment comment = new Comment();

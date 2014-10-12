@@ -6,7 +6,6 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.hsr.intTe.ServiceLocator;
-import ch.hsr.intTe.dao.PostDao;
 import ch.hsr.intTe.domain.Post;
 import ch.hsr.intTe.service.PostService;
 

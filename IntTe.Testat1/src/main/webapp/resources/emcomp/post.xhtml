@@ -16,7 +16,7 @@
 			</div>
 			<div class="media-body">
 				<h4 class="media-heading">
-					<a href="#{post.link}">#{post.title}</a>
+					<a href="#{post.link}" target="_blank">#{post.title}</a>
 				</h4>
 				<span class="text-muted">
 					#{cc.attrs.post.author}, 
@@ -38,7 +38,12 @@
 						</p>
 					</h:commandLink>
 					<h:form rendered="#{login.loggedIn}">
-						<h:inputTextarea value="#{submitComment.text}" />
+						<div class="form-group">
+							<h:outputLabel for="text" value="Comment" />
+							<h:inputTextarea id="text" value="#{submitComment.text}" styleClass="form-control"/>
+							<h:message for="text" errorClass="text-danger" styleClass="help-block" />
+						</div>
+						
 						<h:commandButton type="submit" class="btn btn-success" value="Submit"
 						action="#{submitComment.submitComment(post)}" />
 					</h:form>

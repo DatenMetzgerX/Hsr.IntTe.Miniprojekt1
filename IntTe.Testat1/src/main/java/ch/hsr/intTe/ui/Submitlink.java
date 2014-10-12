@@ -6,6 +6,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
+
 import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.domain.Post;
 import ch.hsr.intTe.domain.User;
@@ -18,7 +21,11 @@ public class Submitlink {
 	@ManagedProperty(value="#{login}")
 	private Login login;
 	
+	@NotEmpty
 	private String title;
+	
+	@NotEmpty
+	@URL
 	private String link;
 	
 	public String submit(){
