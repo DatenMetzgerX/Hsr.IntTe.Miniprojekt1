@@ -1,6 +1,7 @@
 package ch.hsr.intTe.ui;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -24,9 +25,8 @@ public class Content implements Serializable{
 	public Iterable<Post> getPosts(){
 		if (posts == null) {
 			posts = Lists.newArrayList(postService.getPosts());
-			posts.sort(Ordering.natural().reversed());
+			Collections.sort(posts, Ordering.natural().reverse());
 		}
 		return posts;
 	}
-	
 }
