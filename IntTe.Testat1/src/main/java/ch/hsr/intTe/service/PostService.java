@@ -2,6 +2,7 @@ package ch.hsr.intTe.service;
 
 import ch.hsr.intTe.ServiceLocator;
 import ch.hsr.intTe.dao.PostDao;
+import ch.hsr.intTe.domain.Comment;
 import ch.hsr.intTe.domain.Post;
 
 public class PostService {
@@ -18,6 +19,10 @@ public class PostService {
 	
 	public Post savePost(Post post){
 		return postDao.savePost(post);
+	}
+	
+	public void addComment(Post post, Comment comment){
+		postDao.addComment(post, comment);
 	}
 	
 }

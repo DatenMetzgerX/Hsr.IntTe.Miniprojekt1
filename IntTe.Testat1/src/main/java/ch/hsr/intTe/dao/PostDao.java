@@ -31,12 +31,18 @@ public class PostDao {
 		Preconditions.checkNotNull(post);
 		Preconditions.checkNotNull(post.getTitle(), "a post must have a title");
 		Preconditions.checkNotNull(post.getLink(), "a post must have a link");
-		posts.add(0, post);
+		if(posts.contains(post)){
+			posts.remove(post);
+		}
+		posts.add(post);
 		return post;
 	}
 	
 	public Post addComment(Post post, Comment comment){
+		Preconditions.checkNotNull(post);
+		Preconditions.checkNotNull(comment);
 		post.addComment(comment);
+		savePost(post);
 		return post;
 	}
 	

@@ -87,9 +87,7 @@ public class Post implements Serializable, Votable, Comparable<Post> {
 	}
 	
 	public void togleCommentsAreVisible() {
-		if(comments.size() > 0){
-			this.commentsAreVisible = !this.commentsAreVisible;
-		}
+		this.commentsAreVisible = !this.commentsAreVisible;
 	}
 
 	@Override
