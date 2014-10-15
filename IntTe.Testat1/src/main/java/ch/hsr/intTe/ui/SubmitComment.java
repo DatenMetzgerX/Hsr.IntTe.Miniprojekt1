@@ -22,10 +22,7 @@ public class SubmitComment {
 	public void submitComment(Post post){
 		Comment comment = new Comment();
 		comment.setText(text);
-		comment.setDate(new Date());
-		
-		System.out.println(post.getTitle());
-		
+		comment.setDate(new Date());		
 		PostService postService = ServiceLocator.getInstance().locate(PostService.class);
 		postService.addComment(post, comment);
 	}
