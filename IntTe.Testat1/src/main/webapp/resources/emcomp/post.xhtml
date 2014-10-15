@@ -14,7 +14,7 @@
 			<div class="pull-left text-center">
 				<em:vote voteable="#{cc.attrs.post}" />
 			</div>
-			<div class="media-body">
+			<h:panelGroup class="media-body" id="post" layout="block">
 				<h4 class="media-heading">
 					<a href="#{post.link}" target="_blank">#{post.title}</a>
 				</h4>
@@ -29,6 +29,7 @@
 						<span class="glyphicon glyphicon-comment text-muted"></span>
 						#{cc.attrs.post.numberOfComments} comments...
 					</p>
+					<f:ajax render="post" action="@this" />
 				</h:commandLink>
 				<h:panelGroup rendered="#{post.commentsAreVisible}">
 					<h:commandLink action="#{post.togleCommentsAreVisible}" immediate="true">
@@ -36,6 +37,7 @@
 							<span class="glyphicon glyphicon-chevron-up"></span>
 							reduce comments
 						</p>
+						<f:ajax render="post" action="@this" />
 					</h:commandLink>
 					<h:form rendered="#{login.loggedIn}">
 						<div class="form-group">
@@ -49,7 +51,7 @@
 					</h:form>
 					<em:comments comments="#{cc.attrs.post.comments}" />
 				</h:panelGroup>
-			</div>
+			</h:panelGroup>
 		</li>
 	</composite:implementation>
 </body>
