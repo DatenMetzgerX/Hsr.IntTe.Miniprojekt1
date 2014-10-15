@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 
-public class Post implements Serializable, Votable {
+public class Post implements Serializable, Votable, Comparable<Post> {
 	private static final long serialVersionUID = 4534629547661798393L;
 	
 	@NotEmpty
@@ -105,6 +105,11 @@ public class Post implements Serializable, Votable {
 	@Override
 	public int voteDown() {
 		return this.votes--;
+	}
+
+	@Override
+	public int compareTo(Post o) {
+		return this.votes - o.votes;
 	}
 	
 }
