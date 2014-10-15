@@ -10,6 +10,7 @@
 		<composite:attribute name="voteable" required="true" />
 	</composite:interface>
 	<composite:implementation>
+	<h:form>
 		<h:commandLink action="#{cc.attrs.voteable.voteUp}" immediate="true" rendered="#{login.loggedIn}">
 			<f:ajax render="voting" action="@this" />
 			<span class="glyphicon glyphicon-thumbs-up"></span>
@@ -21,6 +22,7 @@
 			<f:ajax render="voting" ation="@this" />
 			<span class="glyphicon glyphicon-thumbs-down"></span>
 		</h:commandLink>
+	</h:form>
 	</composite:implementation>
 </body>
 </html>

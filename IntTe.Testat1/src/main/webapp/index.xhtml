@@ -7,12 +7,10 @@
 	xmlns:em="http://java.sun.com/jsf/composite/emcomp">
 
 	<ui:define name="content">
-		<h:form>
-			<ul class="media-list">
-				<ui:repeat value="#{content.posts}" var="post">
-					<em:post post="#{post}" />
-				</ui:repeat>
-			</ul>
-		</h:form>
+		<ul class="media-list">
+			<p:forEach items="#{content.posts}" var="post">
+				<em:post post="#{post}"/>
+			</p:forEach>
+		</ul>
 	</ui:define>
 </ui:composition>
