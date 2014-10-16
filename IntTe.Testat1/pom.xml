@@ -14,6 +14,12 @@
 
 				<configuration>
 					<warName>IntTe</warName>
+					<webResources>
+	                    <resource>
+	                        <directory>${build.sourceDirectory}</directory>
+	                        <targetPath>WEB-INF/classes</targetPath>
+	                    </resource>
+	                </webResources>
 				</configuration>
 			</plugin>
 			<plugin>
