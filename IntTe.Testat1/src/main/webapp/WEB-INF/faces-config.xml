@@ -5,5 +5,14 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     
-
+    <application>
+    	<locale-config>
+    		<default-locale>en</default-locale>
+    		<supported-locale>de</supported-locale>
+    	</locale-config>
+    	<resource-bundle>
+    		<base-name>ch.hsr.intTe.messages</base-name>
+    		<var>messages</var>
+    	</resource-bundle>
+    </application>
 </faces-config>

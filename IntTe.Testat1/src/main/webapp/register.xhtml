@@ -7,23 +7,23 @@
 	<ui:define name="content">
 		<h:form class="form-horizontal" role="form">
 			<div class="form-group">
-				<h:outputLabel value="Username" for="username" class="col-sm-2 control-label"/>
+				<h:outputLabel value="#{messages['register.username']}" for="username" class="col-sm-2 control-label"/>
 				<div class="col-sm-10">
 					<h:inputText id="username" value="#{register.username}"  class="form-control"/>
 					<h:message for="username"  styleClass="help-block" errorClass="text-danger" />
 				</div>
 			</div>
 			<div class="form-group">
-				<h:outputLabel value="Password" for="password" class="col-sm-2 control-label"/>
+				<h:outputLabel value="#{messages['register.password']}" for="password" class="col-sm-2 control-label"/>
 				<div class="col-sm-10">
-					<prime:password id="password" value="#{register.password}" feedback="false" label="Password" required="true" styleClass="form-control" match="password2	" />
+					<prime:password id="password" value="#{register.password}" feedback="false" label="#{messages['register.password']}" required="true" styleClass="form-control" match="password2	" />
 					<h:message for="password"  styleClass="help-block" errorClass="text-danger" />
 				</div>	
 			</div>
 			<div class="form-group">
-				<h:outputLabel value="repeat password" for="password2" class="col-sm-2 control-label"/>
+				<h:outputLabel value="#{messages['register.password2']}" for="password2" class="col-sm-2 control-label"/>
 				<div class="col-sm-10">
-					<prime:password id="password2" value="#{register.password2}" styleClass="form-control" feedback="false" label="Confirm Password" required="true" />
+					<prime:password id="password2" value="#{register.password2}" styleClass="form-control" feedback="false" label="#{messages['register.password2']}" required="true"/>
 					<h:message for="password2"  styleClass="help-block" errorClass="text-danger" />
 				</div>
 			</div>
