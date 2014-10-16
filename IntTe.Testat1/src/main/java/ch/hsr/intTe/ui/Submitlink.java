@@ -34,6 +34,7 @@ public class Submitlink {
 		post.setTitle(title);
 		post.setLink(compleatLink(link));
 		post.setPostedAt(new Date());
+		post.setCommentsAreVisible(true);
 		
 		ServiceLocator.getInstance().locate(PostService.class).savePost(post);
 		
