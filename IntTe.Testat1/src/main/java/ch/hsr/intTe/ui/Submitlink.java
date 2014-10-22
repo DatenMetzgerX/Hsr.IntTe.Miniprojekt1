@@ -32,7 +32,7 @@ public class Submitlink {
 		Post post = new Post();
 		post.setAuthor(currentUserName());
 		post.setTitle(title);
-		post.setLink(compleatLink(link));
+		post.setLink(link);
 		post.setPostedAt(new Date());
 		post.setCommentsAreVisible(true);
 		
@@ -48,13 +48,6 @@ public class Submitlink {
 			return user.getUsername();
 		}
 		return "anonymous";
-	}
-	
-	private String compleatLink(String link){
-		if(link.length() > 3 && link.substring(0, 3).equals("http")){
-			return link;
-		}
-		return "http://" + link;
 	}
 
 	public String getTitle() {
